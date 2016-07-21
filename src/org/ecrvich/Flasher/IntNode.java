@@ -1,13 +1,13 @@
 package org.ecrvich.Flasher;
 
 public class IntNode
-extends Node
+      extends Node
 {
    private int val;
-   
+
    public IntNode( int val )
    {
-      this.val = val;      
+      this.val = val;
    }
 
    @Override
@@ -18,7 +18,7 @@ extends Node
       return (5);
    }
 
-   public int compare( IntNode obj ) 
+   public int compare( IntNode obj )
    {
       if (this.val < obj.val)
          return (-1);

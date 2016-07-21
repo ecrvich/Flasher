@@ -1,31 +1,32 @@
 package org.ecrvich.Flasher;
-import java.util.Random;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JRadioButtonMenuItem;
-import javax.swing.ButtonGroup;
-import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
-import java.awt.Color;
+
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.util.Random;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 /**
- * Flash color changes at a user-defined speed. Offers both black-and-white as
- * well as full-color mode.
+ * Flash color changes at a user-defined speed. Offers both black-and-white as well as full-color mode.
  * 
  * @author Ernest Crvich
  * 
@@ -73,8 +74,7 @@ public class Flasher
             if (this.running)
             {
                if (Flasher.this.colorMode)
-                  Flasher.this.curBack = new Color( Flasher.this.randColor
-                        .nextInt() );
+                  Flasher.this.curBack = new Color( Flasher.this.randColor.nextInt() );
                else if (Flasher.this.curBack == Color.black)
                   Flasher.this.curBack = Color.white;
                else
@@ -92,7 +92,7 @@ public class Flasher
             }
          }
       }
-      
+
       private int getDivisor()
       {
          int result = Flasher.this.speed;
@@ -116,8 +116,7 @@ public class Flasher
       this.speedLabel = new JLabel( "" + this.speed );
       this.panel.add( this.speedLabel );
       this.setJMenuBar( setupMenu() );
-      this.setBounds( new Rectangle( 0, 0, (int)dims.getWidth(), (int)dims
-            .getHeight() ) );
+      this.setBounds( new Rectangle( 0, 0, (int)dims.getWidth(), (int)dims.getHeight() ) );
       this.getContentPane().add( this.panel, BorderLayout.CENTER );
       this.addWindowListener( this );
       setColor( this.curBack );
@@ -137,8 +136,7 @@ public class Flasher
       menuBar.add( setMenu );
 
       menuItem = new JMenuItem( "Start" );
-      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_S,
-            ActionEvent.CTRL_MASK ) );
+      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_S, ActionEvent.CTRL_MASK ) );
       menuItem.addActionListener( new ActionListener()
       {
          public void actionPerformed( ActionEvent e )
@@ -149,8 +147,7 @@ public class Flasher
       ctlMenu.add( menuItem );
 
       menuItem = new JMenuItem( "Stop" );
-      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_E,
-            ActionEvent.CTRL_MASK ) );
+      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_E, ActionEvent.CTRL_MASK ) );
       menuItem.addActionListener( new ActionListener()
       {
          public void actionPerformed( ActionEvent e )
@@ -164,8 +161,7 @@ public class Flasher
       ctlMenu.addSeparator();
 
       menuItem = new JMenuItem( "Slower" );
-      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_MINUS,
-            ActionEvent.CTRL_MASK ) );
+      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_MINUS, ActionEvent.CTRL_MASK ) );
       menuItem.addActionListener( new ActionListener()
       {
          public void actionPerformed( ActionEvent e )
@@ -178,8 +174,7 @@ public class Flasher
       ctlMenu.add( menuItem );
 
       menuItem = new JMenuItem( "Faster" );
-      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_EQUALS,
-            ActionEvent.CTRL_MASK ) );
+      menuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_EQUALS, ActionEvent.CTRL_MASK ) );
       menuItem.addActionListener( new ActionListener()
       {
          public void actionPerformed( ActionEvent e )
@@ -192,8 +187,7 @@ public class Flasher
 
       ButtonGroup group = new ButtonGroup();
       rbMenuItem = new JRadioButtonMenuItem( "B&W" );
-      rbMenuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_B,
-            ActionEvent.CTRL_MASK ) );
+      rbMenuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_B, ActionEvent.CTRL_MASK ) );
       rbMenuItem.setSelected( true );
       rbMenuItem.setMnemonic( KeyEvent.VK_R );
       group.add( rbMenuItem );
@@ -207,8 +201,7 @@ public class Flasher
       setMenu.add( rbMenuItem );
 
       rbMenuItem = new JRadioButtonMenuItem( "Color" );
-      rbMenuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_C,
-            ActionEvent.CTRL_MASK ) );
+      rbMenuItem.setAccelerator( KeyStroke.getKeyStroke( KeyEvent.VK_C, ActionEvent.CTRL_MASK ) );
       rbMenuItem.setMnemonic( KeyEvent.VK_O );
       group.add( rbMenuItem );
       rbMenuItem.addActionListener( new ActionListener()
